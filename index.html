@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="theme-color" content="#0f766e">
+		<meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme: light)">
+		<meta name="theme-color" content="#0b1020" media="(prefers-color-scheme: dark)">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-title" content="iOS APN">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -13,10 +14,24 @@
 		<link rel="apple-touch-icon" href="./apple-touch-icon.png">
 		<style>
 			:root {
-				color-scheme: light;
+				color-scheme: light dark;
 				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-				background: #f6f8fb;
-				color: #172033;
+				--page-background: #f6f8fb;
+				--page-gradient: linear-gradient(180deg, #ffffff 0%, #eef3f8 100%);
+				--accent-glow: rgba(15, 118, 110, 0.16);
+				--text: #172033;
+				--muted-text: #526174;
+				--card-background: rgba(255, 255, 255, 0.86);
+				--card-border: rgba(148, 163, 184, 0.3);
+				--card-shadow: rgba(15, 23, 42, 0.08);
+				--link-background: #ffffff;
+				--link-border: #d8e2ed;
+				--link-hover: #0f766e;
+				--link-shadow: rgba(15, 118, 110, 0.16);
+				--badge-background: #ecfeff;
+				--badge-text: #0f766e;
+				background: var(--page-background);
+				color: var(--text);
 			}
 
 			* {
@@ -27,8 +42,8 @@
 				margin: 0;
 				min-height: 100vh;
 				background:
-					radial-gradient(circle at top left, rgba(15, 118, 110, 0.16), transparent 32rem),
-					linear-gradient(180deg, #ffffff 0%, #eef3f8 100%);
+					radial-gradient(circle at top left, var(--accent-glow), transparent 32rem),
+					var(--page-gradient);
 			}
 
 			main {
@@ -50,7 +65,7 @@
 
 			.lead {
 				margin: 12px 0 0;
-				color: #526174;
+				color: var(--muted-text);
 				font-size: 1rem;
 				line-height: 1.6;
 			}
@@ -61,10 +76,10 @@
 			}
 
 			.carrier {
-				background: rgba(255, 255, 255, 0.86);
-				border: 1px solid rgba(148, 163, 184, 0.3);
+				background: var(--card-background);
+				border: 1px solid var(--card-border);
 				border-radius: 8px;
-				box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+				box-shadow: 0 18px 45px var(--card-shadow);
 				padding: 18px;
 			}
 
@@ -86,18 +101,18 @@
 				justify-content: space-between;
 				min-height: 58px;
 				padding: 14px 15px;
-				border: 1px solid #d8e2ed;
+				border: 1px solid var(--link-border);
 				border-radius: 8px;
-				background: #ffffff;
-				color: #172033;
+				background: var(--link-background);
+				color: var(--text);
 				text-decoration: none;
 				transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 			}
 
 			.profile-link:hover,
 			.profile-link:focus-visible {
-				border-color: #0f766e;
-				box-shadow: 0 10px 24px rgba(15, 118, 110, 0.16);
+				border-color: var(--link-hover);
+				box-shadow: 0 10px 24px var(--link-shadow);
 				transform: translateY(-1px);
 				outline: none;
 			}
@@ -114,10 +129,29 @@
 				min-height: 28px;
 				padding: 4px 9px;
 				border-radius: 999px;
-				background: #ecfeff;
-				color: #0f766e;
+				background: var(--badge-background);
+				color: var(--badge-text);
 				font-size: 0.78rem;
 				font-weight: 800;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--page-background: #0b1020;
+					--page-gradient: linear-gradient(180deg, #141b2d 0%, #090d18 100%);
+					--accent-glow: rgba(45, 212, 191, 0.18);
+					--text: #f5f7fb;
+					--muted-text: #bac4d3;
+					--card-background: rgba(22, 30, 48, 0.88);
+					--card-border: rgba(148, 163, 184, 0.22);
+					--card-shadow: rgba(0, 0, 0, 0.34);
+					--link-background: rgba(13, 20, 34, 0.92);
+					--link-border: rgba(148, 163, 184, 0.28);
+					--link-hover: #5eead4;
+					--link-shadow: rgba(45, 212, 191, 0.18);
+					--badge-background: rgba(45, 212, 191, 0.16);
+					--badge-text: #99f6e4;
+				}
 			}
 
 			@media (max-width: 520px) {
