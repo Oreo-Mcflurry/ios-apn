@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+	<title id="title">iOS APN</title>
+	<desc id="desc">A teal app icon with a phone and signal marks.</desc>
+	<rect width="512" height="512" rx="112" fill="#0f766e"/>
+	<circle cx="392" cy="120" r="42" fill="#facc15"/>
+	<rect x="154" y="84" width="204" height="344" rx="36" fill="#f8fafc"/>
+	<rect x="178" y="128" width="156" height="244" rx="12" fill="#134e4a"/>
+	<circle cx="256" cy="400" r="14" fill="#134e4a"/>
+	<path d="M214 252c23-23 61-23 84 0" fill="none" stroke="#5eead4" stroke-width="28" stroke-linecap="round"/>
+	<path d="M184 206c40-40 104-40 144 0" fill="none" stroke="#99f6e4" stroke-width="28" stroke-linecap="round"/>
+	<path d="M242 298c8-8 20-8 28 0" fill="none" stroke="#facc15" stroke-width="28" stroke-linecap="round"/>
+</svg>

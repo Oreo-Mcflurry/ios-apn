@@ -1,0 +1,24 @@
+{
+	"name": "iOS APN Profiles",
+	"short_name": "iOS APN",
+	"description": "Quick access to iOS APN mobile configuration profiles.",
+	"start_url": "./",
+	"scope": "./",
+	"display": "standalone",
+	"background_color": "#f8fafc",
+	"theme_color": "#0f766e",
+	"icons": [
+		{
+			"src": "./apple-touch-icon.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "./icon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml",
+			"purpose": "any maskable"
+		}
+	]
+}
