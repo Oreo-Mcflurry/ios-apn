@@ -1,4 +1,5 @@
-const CACHE_NAME = "ios-apn-v1";
+const CACHE_NAME = "ios-apn-v2";
+const PROFILE_CONTENT_TYPE = "application/x-apple-aspen-config";
 
 const ASSETS = [
 	"./",
@@ -47,9 +48,34 @@ self.addEventListener("fetch", function (event) {
 		return;
 	}
 
+	const requestUrl = new URL(event.request.url);
+	const isMobileConfig = requestUrl.pathname.endsWith(".mobileconfig");
+
 	event.respondWith(
 		caches.match(event.request).then(function (cachedResponse) {
-			return cachedResponse || fetch(event.request);
+			if (cachedResponse) {
+				return withProfileHeaders(cachedResponse, isMobileConfig, requestUrl);
+			}
+
+			return fetch(event.request).then(function (networkResponse) {
+				return withProfileHeaders(networkResponse, isMobileConfig, requestUrl);
+			});
 		})
 	);
 });
+
+function withProfileHeaders(response, isMobileConfig, requestUrl) {
+	if (!isMobileConfig) {
+		return response;
+	}
+
+	const headers = new Headers(response.headers);
+	headers.set("Content-Type", PROFILE_CONTENT_TYPE);
+	headers.set("Content-Disposition", `attachment; filename="${requestUrl.pathname.split("/").pop()}"`);
+
+	return new Response(response.body, {
+		status: response.status,
+		statusText: response.statusText,
+		headers: headers
+	});
+}
