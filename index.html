@@ -11,19 +11,193 @@
 		<link rel="manifest" href="./manifest.json">
 		<link rel="icon" href="./icon.svg" type="image/svg+xml">
 		<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+		<style>
+			:root {
+				color-scheme: light;
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+				background: #f6f8fb;
+				color: #172033;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				min-height: 100vh;
+				background:
+					radial-gradient(circle at top left, rgba(15, 118, 110, 0.16), transparent 32rem),
+					linear-gradient(180deg, #ffffff 0%, #eef3f8 100%);
+			}
+
+			main {
+				width: min(100%, 760px);
+				margin: 0 auto;
+				padding: 40px 20px 56px;
+			}
+
+			header {
+				margin-bottom: 28px;
+			}
+
+			h1 {
+				margin: 0;
+				font-size: clamp(2rem, 7vw, 3.35rem);
+				line-height: 1.05;
+				letter-spacing: 0;
+			}
+
+			.lead {
+				margin: 12px 0 0;
+				color: #526174;
+				font-size: 1rem;
+				line-height: 1.6;
+			}
+
+			.carrier-list {
+				display: grid;
+				gap: 18px;
+			}
+
+			.carrier {
+				background: rgba(255, 255, 255, 0.86);
+				border: 1px solid rgba(148, 163, 184, 0.3);
+				border-radius: 8px;
+				box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+				padding: 18px;
+			}
+
+			.carrier h2 {
+				margin: 0 0 12px;
+				font-size: 1.05rem;
+				letter-spacing: 0;
+			}
+
+			.profile-grid {
+				display: grid;
+				gap: 10px;
+				grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+			}
+
+			.profile-link {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				min-height: 58px;
+				padding: 14px 15px;
+				border: 1px solid #d8e2ed;
+				border-radius: 8px;
+				background: #ffffff;
+				color: #172033;
+				text-decoration: none;
+				transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+			}
+
+			.profile-link:hover,
+			.profile-link:focus-visible {
+				border-color: #0f766e;
+				box-shadow: 0 10px 24px rgba(15, 118, 110, 0.16);
+				transform: translateY(-1px);
+				outline: none;
+			}
+
+			.profile-name {
+				font-weight: 700;
+			}
+
+			.profile-kind {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				min-width: 44px;
+				min-height: 28px;
+				padding: 4px 9px;
+				border-radius: 999px;
+				background: #ecfeff;
+				color: #0f766e;
+				font-size: 0.78rem;
+				font-weight: 800;
+			}
+
+			@media (max-width: 520px) {
+				main {
+					padding: 28px 14px 40px;
+				}
+
+				.carrier {
+					padding: 14px;
+				}
+
+				.profile-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
 	</head>
 	<body>
-		<p><a href="./kt_3g.mobileconfig">KT 3G</a></p>
-		<p><a href="./kt_lte.mobileconfig">KT LTE</a></p>
-		<p><a href="./kt_5g.mobileconfig">KT 5G</a></p>
+		<main>
+			<header>
+				<h1>iOS APN Profiles</h1>
+				<p class="lead">필요한 통신사와 네트워크를 선택해 APN 구성 프로파일을 설치하세요.</p>
+			</header>
 
-		<p><a href="./sktelecom_3g.mobileconfig">SKTelecom 3G</a></p>
-		<p><a href="./sktelecom_apple.mobileconfig">SKTelecom Apple</a></p>
-		<p><a href="./sktelecom_lte.mobileconfig">SKTelecom LTE</a></p>
-		<p><a href="./sktelecom_5g.mobileconfig">SKTelecom 5G</a></p>
+			<div class="carrier-list">
+				<section class="carrier" aria-labelledby="kt-title">
+					<h2 id="kt-title">KT</h2>
+					<div class="profile-grid">
+						<a class="profile-link" href="./kt_3g.mobileconfig">
+							<span class="profile-name">KT</span>
+							<span class="profile-kind">3G</span>
+						</a>
+						<a class="profile-link" href="./kt_lte.mobileconfig">
+							<span class="profile-name">KT</span>
+							<span class="profile-kind">LTE</span>
+						</a>
+						<a class="profile-link" href="./kt_5g.mobileconfig">
+							<span class="profile-name">KT</span>
+							<span class="profile-kind">5G</span>
+						</a>
+					</div>
+				</section>
 
-		<p><a href="./lguplus.mobileconfig">LGU+</a></p>
-		<p><a href="./lguplus_tethering.mobileconfig">LGU+ Tethering</a></p>
+				<section class="carrier" aria-labelledby="sk-title">
+					<h2 id="sk-title">SK Telecom</h2>
+					<div class="profile-grid">
+						<a class="profile-link" href="./sktelecom_3g.mobileconfig">
+							<span class="profile-name">SK Telecom</span>
+							<span class="profile-kind">3G</span>
+						</a>
+						<a class="profile-link" href="./sktelecom_apple.mobileconfig">
+							<span class="profile-name">SK Telecom</span>
+							<span class="profile-kind">Apple</span>
+						</a>
+						<a class="profile-link" href="./sktelecom_lte.mobileconfig">
+							<span class="profile-name">SK Telecom</span>
+							<span class="profile-kind">LTE</span>
+						</a>
+						<a class="profile-link" href="./sktelecom_5g.mobileconfig">
+							<span class="profile-name">SK Telecom</span>
+							<span class="profile-kind">5G</span>
+						</a>
+					</div>
+				</section>
+
+				<section class="carrier" aria-labelledby="lgu-title">
+					<h2 id="lgu-title">LG U+</h2>
+					<div class="profile-grid">
+						<a class="profile-link" href="./lguplus.mobileconfig">
+							<span class="profile-name">LG U+</span>
+							<span class="profile-kind">APN</span>
+						</a>
+						<a class="profile-link" href="./lguplus_tethering.mobileconfig">
+							<span class="profile-name">LG U+</span>
+							<span class="profile-kind">Tethering</span>
+						</a>
+					</div>
+				</section>
+			</div>
+		</main>
 		<script>
 			if ("serviceWorker" in navigator) {
 				window.addEventListener("load", function () {
