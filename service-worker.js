@@ -1,4 +1,4 @@
-const CACHE_NAME = "ios-apn-v2";
+const CACHE_NAME = "ios-apn-v3";
 const PROFILE_CONTENT_TYPE = "application/x-apple-aspen-config";
 
 const ASSETS = [
@@ -7,13 +7,6 @@ const ASSETS = [
 	"./manifest.json",
 	"./icon.svg",
 	"./apple-touch-icon.png",
-	"./kt_3g.mobileconfig",
-	"./kt_lte.mobileconfig",
-	"./kt_5g.mobileconfig",
-	"./sktelecom_3g.mobileconfig",
-	"./sktelecom_apple.mobileconfig",
-	"./sktelecom_lte.mobileconfig",
-	"./sktelecom_5g.mobileconfig",
 	"./lguplus.mobileconfig",
 	"./lguplus_tethering.mobileconfig"
 ];
